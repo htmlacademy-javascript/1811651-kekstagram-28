@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Игорь Кезля](https://up.htmlacademy.ru/javascript/28/user/1811651).
-* Наставник: `Неизвестно`.
+* Наставник: [Дмитрий Гуляев](https://htmlacademy.ru/profile/dima).
 
 ---
 
