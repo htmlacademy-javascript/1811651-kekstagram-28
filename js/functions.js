@@ -21,7 +21,7 @@ checkPalindrome('ДовОд');
 checkPalindrome('Кекс');
 
 
-const getNumber = (string) => {
+const getNumberFromString = (string) => {
   if (typeof string === 'number') {
     return string;
   }
@@ -37,11 +37,11 @@ const getNumber = (string) => {
   return parseInt(result, 10);
 };
 
-getNumber('2023 год');
-getNumber('ECMAScript 2022');
-getNumber('1 кефир, 0.5 батона');
-getNumber('агент 007');
-getNumber('а я томат');
+getNumberFromString('2023 год');
+getNumberFromString('ECMAScript 2022');
+getNumberFromString('1 кефир, 0.5 батона');
+getNumberFromString('агент 007');
+getNumberFromString('а я томат');
 
 const generateAddress = (string, minLength, addSymbols) => {
   const actualLength = minLength - string.length;
