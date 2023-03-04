@@ -29,15 +29,15 @@ const DESCRIPTION_TEMPLATES = [
   'Самое красивое место на планете'
 ];
 
-function getRandomInteger (min, max) {
+const getRandomInteger = (min, max) => {
   const lower = Math.ceil(Math.min(Math.abs(min), Math.abs(max)));
   const upper = Math.floor(Math.max(Math.abs(min), Math.abs(max)));
   const result = Math.random() * (upper - lower + 1) + lower;
 
   return Math.floor(result);
-}
+};
 
-function createRandomIdFromRangeGenerator (min, max) {
+const createRandomIdFromRangeGenerator = (min, max) => {
   const previousValues = [];
 
   return function () {
@@ -52,7 +52,7 @@ function createRandomIdFromRangeGenerator (min, max) {
     previousValues.push(currentValue);
     return currentValue;
   };
-}
+};
 
 const idPhoto = createRandomIdFromRangeGenerator(1, 25);
 const idMessage = createRandomIdFromRangeGenerator(1, 500);
@@ -60,11 +60,11 @@ const idPhotoDescription = createRandomIdFromRangeGenerator(1, 25);
 
 const getRandomArray = (element, numberOfElement) => {
   const idOfElement = createRandomIdFromRangeGenerator (0, element.length - 1);
-  const newArray = [];
+  const newElements = [];
   for(let i = 0; i < numberOfElement; i++) {
-    newArray.push(element[idOfElement()]);
+    newElements.push(element[idOfElement()]);
   }
-  return newArray.join(' ');
+  return newElements.join(' ');
 };
 
 const createMessage = () => {
@@ -85,4 +85,4 @@ const createDescriptionPhoto = () => ({
   comments: Array.from({length: getRandomInteger(1, 8)}, createMessage)
 });
 
-const photosOfUsers = Array.from({length: 25}, createDescriptionPhoto);
+console.log(Array.from({length: 25}, createDescriptionPhoto));
