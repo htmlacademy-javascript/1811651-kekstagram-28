@@ -31,6 +31,8 @@ const DESCRIPTION_TEMPLATES = [
   'Самое красивое место на планете'
 ];
 
+const COUNT_OF_DESCRIPTION = 25;
+
 const idPhoto = createRandomIdFromRangeGenerator(1, 25);
 const idMessage = createRandomIdFromRangeGenerator(1, 500);
 const idPhotoDescription = createRandomIdFromRangeGenerator(1, 25);
@@ -53,6 +55,6 @@ const createDescriptionPhoto = () => ({
   comments: Array.from({length: getRandomInteger(1, 8)}, createMessage)
 });
 
-const createDescriptionsOfPhotos = () => Array.from({length: 25}, createDescriptionPhoto);
+const createDescriptionsOfPhotos = () => Array.from({length: COUNT_OF_DESCRIPTION}, createDescriptionPhoto);
 
 export {createDescriptionsOfPhotos};
