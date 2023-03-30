@@ -1,6 +1,6 @@
 import {createDescriptionsOfPhotos} from './data.js';
-import { renderThumbnails } from './miniature.js';
+import { renderGallery } from './gallery.js';
 
 // console.log(createDescriptionsOfPhotos());
 
-renderThumbnails(createDescriptionsOfPhotos());
+renderGallery(createDescriptionsOfPhotos());
