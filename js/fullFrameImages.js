@@ -1,3 +1,4 @@
+import { isEscapeKey } from './util.js';
 const bigPicture = document.querySelector('.big-picture');
 const socialComments = bigPicture.querySelector('.social__comments');
 const userComment = socialComments.querySelector('.social__comment');
@@ -49,6 +50,15 @@ closeButton.addEventListener('click', () => {
   bigPicture.classList.add('hidden');
   document.body.classList.remove('modal-open');
   shownComments = 0;
+});
+
+document.addEventListener('keydown', (evt) => {
+  if(isEscapeKey(evt)) {
+    evt.preventDefault();
+    bigPicture.classList.add('hidden');
+    document.body.classList.remove('modal-open');
+    shownComments = 0;
+  }
 });
 
 export {showBigPicture};
