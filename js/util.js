@@ -32,4 +32,6 @@ const getRandomArray = (element, numberOfElement) => {
   return newElements.join(' ');
 };
 
-export {getRandomInteger, createRandomIdFromRangeGenerator, getRandomArray};
+const isEscapeKey = (evt) => evt.key === 'Escape';
+
+export {getRandomInteger, createRandomIdFromRangeGenerator, getRandomArray, isEscapeKey};

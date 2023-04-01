@@ -41,7 +41,7 @@ const createMessage = () => {
   const numberOfMessage = getRandomInteger(1, 2);
   return {
     id: idMessage(),
-    avatar: `img/avatar-${getRandomInteger(1, 6)}.jpg`,
+    avatar: `img/avatar-${getRandomInteger(1, 6)}.svg`,
     message: getRandomArray(COMMENTS_TEMPLATES, numberOfMessage),
     name: getRandomArray(NAMES, 1)
   };
