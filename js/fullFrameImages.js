@@ -44,6 +44,9 @@ const showBigPicture = (thumbnailId) => {
     socialCommentCount.innerHTML = `${shownComments} из <span class="comments-count">${comments.length}</span> комментариев`;
   };
   renderComments(comments);
+  commentsLoader.addEventListener('click', () => {
+    renderComments(comments);
+  });
 };
 
 closeButton.addEventListener('click', () => {
