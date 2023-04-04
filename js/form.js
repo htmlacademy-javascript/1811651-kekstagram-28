@@ -31,17 +31,17 @@ const hideModal = () => {
   document.removeEventListener('keydown', onDocumentKeydown);
 };
 
-const onFocusedTextField = () => {
-  return document.activeElement === hashtags ||
+const onFocusedTextField = () =>
+  document.activeElement === hashtags ||
    document.activeElement === commentField;
-};
+
 
 function onDocumentKeydown (evt) {
   if (evt.key === 'Escape' && !onFocusedTextField()) {
     evt.preventDefault();
     hideModal();
   }
-};
+}
 
 const onFileInputChange = () => {
   showModal();
@@ -55,12 +55,11 @@ fileField.addEventListener('change', onFileInputChange);
 closeButton.addEventListener('click', onCancelButtonClick);
 
 const isValidTag = (tag) => {
-  return HASHTAG_VALID_SYMBOLS.test(tag);
+  HASHTAG_VALID_SYMBOLS.test(tag);
 };
 
-const hasValidCount = (tags) => {
-  return tags.length <= MAX_COUNT_HASHTAGS;
-};
+const hasValidCount = (tags) =>
+  tags.length <= MAX_COUNT_HASHTAGS;
 
 const hasUniqueTags = (tags) => {
   const lowerCaseTags = tags.map((tag) => tag.toLowerCase());
