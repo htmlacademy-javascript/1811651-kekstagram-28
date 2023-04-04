@@ -54,9 +54,9 @@ const onCancelButtonClick = () => {
 fileField.addEventListener('change', onFileInputChange);
 closeButton.addEventListener('click', onCancelButtonClick);
 
-const isValidTag = (tag) => {
+const isValidTag = (tag) =>
   HASHTAG_VALID_SYMBOLS.test(tag);
-};
+
 
 const hasValidCount = (tags) =>
   tags.length <= MAX_COUNT_HASHTAGS;
