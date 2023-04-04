@@ -1,4 +1,5 @@
 import { resetScale } from './scale.js';
+import { resetEffects } from './effect.js';
 
 const uploadForm = document.querySelector('.img-upload__form');
 const fileField = uploadForm.querySelector('#upload-file');
@@ -32,6 +33,7 @@ const hideModal = () => {
   imgUploadOverlay.classList.add('hidden');
   document.removeEventListener('keydown', onDocumentKeydown);
   resetScale();
+  resetEffects();
 };
 
 const onFocusedTextField = () => {
