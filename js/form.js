@@ -66,7 +66,6 @@ const isValidTag = (tag) =>
 const hasValidCount = (tags) =>
   tags.length <= MAX_COUNT_HASHTAGS;
 
-
 const hasUniqueTags = (tags) => {
   const lowerCaseTags = tags.map((tag) => tag.toLowerCase());
   return lowerCaseTags.length === new Set(lowerCaseTags).size;
