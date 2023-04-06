@@ -38,7 +38,7 @@ const hideModal = () => {
 
 const onFocusedTextField = () =>
   document.activeElement === hashtags ||
-  document.activeElement === commentField;
+   document.activeElement === commentField;
 
 
 function onDocumentKeydown (evt) {
