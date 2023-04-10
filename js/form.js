@@ -1,9 +1,10 @@
 import { resetScale } from './scale.js';
 import { resetEffects } from './effect.js';
-import { showAlert } from './util.js';
+// import { showAlert } from './util.js';
 import { sendData } from './api.js';
+import { showSuccessUpload, showErrorUpload } from './uploadmodal.js';
 
-const uploadForm = document.querySelector('.img-upload__form');
+const uploadForm = document.querySelector('#upload-select-image');
 const fileField = uploadForm.querySelector('#upload-file');
 const body = document.querySelector('body');
 const imgUploadOverlay = uploadForm.querySelector('.img-upload__overlay');
@@ -84,7 +85,7 @@ const validateTags = (value) => {
     .trim()
     .split(' ')
     .filter((tag) => tag.trim().length);
-  return tags.every(isValidTag) && hasValidCount && hasUniqueTags;
+  return tags.every(isValidTag) && hasValidCount(tags) && hasUniqueTags(tags);
 };
 
 pristine.addValidator(
@@ -103,7 +104,7 @@ const unblockSubmitButton = () => {
   submitButton.textContent = SubmitButtonText.IDLE;
 };
 
-const setUserFormSubmit = (onSuccess) => {
+function setUserFormSubmit(onSuccess) {
   uploadForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
     const isValid = pristine.validate();
@@ -111,12 +112,15 @@ const setUserFormSubmit = (onSuccess) => {
       blockSubmitButton();
       const formData = new FormData(evt.target);
       sendData(formData)
-        .then(onSuccess)
-        .catch((err) => {
-          showAlert(err.message);
+        .then(() => {
+          onSuccess();
+          showSuccessUpload();
+        })
+        .catch(() => {
+          showErrorUpload();
         }).finally(unblockSubmitButton);
     }
   });
-};
+}
 
 export {setUserFormSubmit, hideModal};
