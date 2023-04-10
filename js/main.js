@@ -1,13 +1,15 @@
 // import {createDescriptionsOfPhotos} from './data.js';
 import { renderGallery } from './gallery.js';
-import './form.js';
+import { setUserFormSubmit, hideModal } from './form.js';
 import './scale.js';
 import './effect.js';
+import { getData } from './api.js';
 
 // renderGallery(createDescriptionsOfPhotos());
 
-fetch('https://28.javascript.pages.academy/kekstagram/data')
-  .then((response) => response.json())
+getData()
   .then((data) => {
     renderGallery(data);
   });
+
+setUserFormSubmit(hideModal);
