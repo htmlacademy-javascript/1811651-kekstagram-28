@@ -32,8 +32,10 @@ const showBigPicture = (thumbnailId) => {
     if (shownComments >= comments.length) {
       shownComments = comments.length;
       commentsLoader.classList.add('hidden');
+      commentsLoader.removeEventListener('click', addComments);
     } else {
       commentsLoader.classList.remove('hidden');
+      commentsLoader.addEventListener('click', addComments);
     }
     for (let i = 0; i < shownComments; i++) {
       const commentElement = createNewComment(comments[i]);
@@ -43,10 +45,10 @@ const showBigPicture = (thumbnailId) => {
     socialComments.appendChild(fragment);
     socialCommentCount.innerHTML = `${shownComments} из <span class="comments-count">${comments.length}</span> комментариев`;
   };
-  renderComments(comments);
-  commentsLoader.addEventListener('click', () => {
-    renderComments(comments);
-  });
+  renderComments();
+  function addComments () {
+    renderComments();
+  }
 };
 
 closeButton.addEventListener('click', () => {

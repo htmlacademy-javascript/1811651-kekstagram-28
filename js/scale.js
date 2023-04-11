@@ -32,7 +32,7 @@ const onBiggerButtonClick = () => {
 };
 
 const resetScale = () => {
-  imageScalePreview(DEFAULT_SCALE);
+  imageScalePreview.style.transform = DEFAULT_SCALE;
 };
 
 smallerButtonScale.addEventListener('click', onSmallerButtonClick);

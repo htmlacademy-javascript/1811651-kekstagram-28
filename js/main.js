@@ -1,7 +1,19 @@
-import {createDescriptionsOfPhotos} from './data.js';
+// import {createDescriptionsOfPhotos} from './data.js';
+import { setUserFormSubmit, hideModal } from './form.js';
 import { renderGallery } from './gallery.js';
-import './form.js';
 import './scale.js';
 import './effect.js';
+import { getData } from './api.js';
+import { showAlert } from './util.js';
 
-renderGallery(createDescriptionsOfPhotos());
+// renderGallery(createDescriptionsOfPhotos());
+
+getData()
+  .then((data) => {
+    renderGallery(data);
+  })
+  .catch((err) => {
+    showAlert(err.message);
+  });
+
+setUserFormSubmit(hideModal);
