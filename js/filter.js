@@ -1,5 +1,3 @@
-import { getRandomArray } from './util.js';
-
 const Filter = {
   DEFAULT: 'filter-default',
   RANDOM: 'filter-random',
@@ -10,7 +8,7 @@ const filterElement = document.querySelector('.img-filters');
 let currentFilter = Filter.DEFAULT;
 let pictures = [];
 
-const sortRandom = () => getRandomArray(pictures, 10);
+const sortRandom = () => Math.random() - 0.5;
 
 const sortByComments = (pictureA, pictureB) => pictureB.comments.length - pictureA.comments.length;
 
