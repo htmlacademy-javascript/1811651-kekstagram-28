@@ -1,4 +1,4 @@
-import { showBigPicture } from './fullFrameImages.js';
+import { showBigPicture } from './full-frame-images.js';
 import { renderThumbnails } from './miniature.js';
 
 const container = document.querySelector('.pictures');

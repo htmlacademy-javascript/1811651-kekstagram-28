@@ -1,8 +1,7 @@
 import { resetScale } from './scale.js';
 import { resetEffects } from './effect.js';
-// import { showAlert } from './util.js';
 import { sendData } from './api.js';
-import { showSuccessUpload, showErrorUpload } from './uploadmodal.js';
+import { showSuccessUpload, showErrorUpload } from './upload-modal.js';
 
 const uploadForm = document.querySelector('#upload-select-image');
 const fileField = uploadForm.querySelector('#upload-file');
