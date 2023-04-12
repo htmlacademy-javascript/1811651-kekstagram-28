@@ -5,6 +5,7 @@ import './effect.js';
 import { getData } from './api.js';
 import { showAlert, debounce } from './util.js';
 import { init, getFilterPictures } from './filter.js';
+import './user-photo.js';
 
 const debounceRenderGallery = debounce(renderGallery, 500);
 
