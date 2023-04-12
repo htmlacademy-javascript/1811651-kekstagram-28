@@ -1,16 +1,17 @@
-// import {createDescriptionsOfPhotos} from './data.js';
 import { setUserFormSubmit, hideModal } from './form.js';
 import { renderGallery } from './gallery.js';
 import './scale.js';
 import './effect.js';
 import { getData } from './api.js';
-import { showAlert } from './util.js';
+import { showAlert, debounce } from './util.js';
+import { init, getFilterPictures } from './filter.js';
 
-// renderGallery(createDescriptionsOfPhotos());
+const debounceRenderGallery = debounce(renderGallery, 500);
 
 getData()
   .then((data) => {
-    renderGallery(data);
+    init(data, debounceRenderGallery);
+    renderGallery(getFilterPictures());
   })
   .catch((err) => {
     showAlert(err.message);
