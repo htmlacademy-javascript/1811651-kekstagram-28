@@ -103,7 +103,7 @@ const unblockSubmitButton = () => {
   submitButton.textContent = SubmitButtonText.IDLE;
 };
 
-function setUserFormSubmit(onSuccess) {
+const setUserFormSubmit = (onSuccess) => {
   uploadForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
     const isValid = pristine.validate();
@@ -120,6 +120,6 @@ function setUserFormSubmit(onSuccess) {
         }).finally(unblockSubmitButton);
     }
   });
-}
+};
 
 export {setUserFormSubmit, hideModal};
