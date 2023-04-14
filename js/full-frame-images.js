@@ -12,9 +12,11 @@ let commentList;
 
 const createNewComment = (comment) => {
   const newComment = userComment.cloneNode(true);
-  newComment.querySelector('.social__picture').src = comment.avatar;
-  newComment.querySelector('.social__text').textContent = comment.message;
-  newComment.querySelector('.social__picture').alt = comment.name;
+  const socialPicture = newComment.querySelector('.social__picture');
+  const socialText = newComment.querySelector('.social__text');
+  socialPicture.src = comment.avatar;
+  socialText.textContent = comment.message;
+  socialPicture.alt = comment.name;
   return newComment;
 };
 
